@@ -1,6 +1,12 @@
+#
+# Recieve some HTML from a Readability-bookmarklet enhanced page, format it 
+# and run the moby_mailer.rb script on it to mail it from my gmail account
+# to the Kindle free account
+#
 $LOAD_PATH.unshift File.dirname(__FILE__) + '../../public/sinatra/lib'
 require 'sinatra/base'
 
+# Create a `tmp` folder under the root to write the generated file 
 TMP_FILE = File.join(File.dirname(__FILE__),"tmp","kindler.html")
 MAILER = File.join(File.dirname(__FILE__),"moby_mailer.rb")
 
