@@ -5,18 +5,29 @@
 require 'yaml'
 require 'rubygems'
 require 'gmail'
+require 'hpricot'
 
 root = File.dirname(__FILE__)
 
-# FIXME Fetch Images and make appropriate modifications to HTML if required
+html_file = File.join(root,"tmp","kindler.html")
+
+# Fetch Images and make appropriate modifications to HTML if required
+doc = open(html_file) {|f|  Hpricot(f) }
+(doc/"img").each do |img|
+  url = img['src']
+  img_file = File.basename(url)
+  `curl --silent --output #{File.join(root,'tmp',img_file)} -O #{url}`
+  img['src'] = img_file
+end
+
+File.open(html_file,"w") { |f| f.write(doc.to_s) }
 
 # Generate .mobi file from tmp/kindler.html
 mobi_file = File.join(root,"tmp","kindler.mobi")
-html_file = File.join(root,"tmp","kindler.html")
 kindlegen = File.join(root,"kindlegen")
 `rm -f #{mobi_file}`
 `#{kindlegen} #{html_file} 2>&1 > #{root}/kindlegen.log`
-
+`rm -f #{root}/*.png`
 # Send mail via gmail
 settings = YAML.load(File.read(File.join(root,".gmail_credentials")))
 gmail = Gmail.new(settings["username"], settings["password"])
