@@ -1,7 +1,6 @@
 javascript:(function(){
 removeElement("readFooter");
 removeElement("readTools");
-console.log("removed");
 var html = document.getElementById("readInner").innerHTML;
 var form = document.createElement("form");
 form.action = "http://127.0.0.1:8081";
