@@ -1,6 +1,10 @@
-This is a bunch of scripts to make it easy to send stuff from my browser to my Kindle smoothly.
+**This is alpha-grade software. Use at your own risk.**
 
-*This needs to be documented better. But you can figure it out by reading the source code.*
+*This needs to be documented better. But you can figure it out by reading the
+source code.*
+
+A bunch of scripts to make it easy to send stuff from my browser directly to my
+Kindle.
 
 The process involves :
 
@@ -10,7 +14,7 @@ The process involves :
 4. Using [KindleGen] to generate an ebook in .mobi format 
 5. Sending out the generated file using Gmail
 
-**This is alpha-grade software. Use at your own risk.**
+Mail any suggestions to [deepak DOT jois AT gmail.com](deepak.jois@gmail.com)
 
 [Readability]:http://lab.arc90.com/experiments/readability/
 [KindleGen]:http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000234621
