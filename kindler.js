@@ -3,6 +3,7 @@ removeElement("readFooter");
 removeElement("readTools");
 var html = document.getElementById("readInner").innerHTML;
 var form = document.createElement("form");
+document.body.appendChild(form);
 form.action = "http://127.0.0.1:8081";
 form.method = "POST";
 var textarea = document.createElement("textarea");
