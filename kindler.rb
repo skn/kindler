@@ -14,7 +14,7 @@ class Kindler < Sinatra::Base
  set :root, File.dirname(__FILE__)
  post '/' do
    @contents = params[:contents]
-   @title = /<h1.*>(.*)<\/h1>/.match(@contents)[1]
+   @title = params[:title]
    @text = erb(:index)
    # FIXME make file I/O and script execution asynch
    File.open(TMP_FILE,"w") do |f|
