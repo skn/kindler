@@ -1,7 +1,6 @@
 javascript:(function(){
-removeElement("readFooter");
-removeElement("readTools");
-var html = document.getElementById("readInner").innerHTML;
+removeElement("rdb-article-meta");
+var html = document.getElementById("rdb-article").innerHTML;
 var form = document.createElement("form");
 document.body.appendChild(form);
 form.action = "http://127.0.0.1:8081";
