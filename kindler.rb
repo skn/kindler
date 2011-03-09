@@ -6,6 +6,7 @@
 $LOAD_PATH.unshift File.dirname(__FILE__) + '../../public/sinatra/lib'
 require 'sinatra/base'
 require 'fileutils'
+require 'iconv'
 
 # Create a `tmp` folder under the root to write the generated file 
 TMP_FILE = File.join(File.dirname(__FILE__),"tmp","kindler.html")
@@ -19,8 +20,10 @@ class Kindler < Sinatra::Base
    @title = params[:title]
    @text = erb(:index)
    # FIXME make file I/O and script execution asynch
+   ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
+   @conv_text = ic.iconv(@text)
    File.open(TMP_FILE,"w") do |f|
-     f.write @text
+     f.write @conv_text
      f.flush
    end
    # Run the mailer
@@ -32,7 +35,7 @@ class Kindler < Sinatra::Base
      end
    end
    
-   @text
+   @conv_text
  end
 end
 
