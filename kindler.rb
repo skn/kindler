@@ -5,9 +5,11 @@
 #
 $LOAD_PATH.unshift File.dirname(__FILE__) + '../../public/sinatra/lib'
 require 'sinatra/base'
+require 'fileutils'
 
 # Create a `tmp` folder under the root to write the generated file 
 TMP_FILE = File.join(File.dirname(__FILE__),"tmp","kindler.html")
+TMP_DIR = File.dirname(TMP_FILE)
 MAILER = File.join(File.dirname(__FILE__),"moby_mailer.rb")
 
 class Kindler < Sinatra::Base
@@ -23,6 +25,12 @@ class Kindler < Sinatra::Base
    end
    # Run the mailer
    `ruby #{MAILER}`
+   
+   Dir.foreach(TMP_DIR) do |f|
+     if f == '.' or f == '..' then next
+     else FileUtils.rm( File.join(TMP_DIR,f) )
+     end
+   end
    
    @text
  end
