@@ -15,7 +15,7 @@ javascript: (function() {
 
     var title = document.createElement("input");
     title.name = "title";
-    title.value = document.title;
+    title.value = document.getElementById("article-entry-title").innerHTML;
 
     form.appendChild(textarea);
     form.appendChild(title);
