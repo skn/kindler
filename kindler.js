@@ -17,6 +17,7 @@ javascript: (function() {
     var title = document.createElement("input");
     title.name = "title";
     title.value = document.getElementById("article-entry-title").innerHTML;
+    title.value = prompt('Please check the title', title.value); 
 
     form.appendChild(textarea);
     form.appendChild(title);
