@@ -21,7 +21,10 @@ javascript: (function() {
     form.appendChild(title);
     form.submit();
     function removeElement(id) {
-        var element = document.getElementById(id);
-        element.parentNode.removeChild(element);
+        try{
+            var element = document.getElementById(id);
+            element.parentNode.removeChild(element);
+        }
+        catch(e) {}
     };
 })();
