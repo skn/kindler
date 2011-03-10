@@ -3,6 +3,7 @@ javascript: (function() {
     removeElement("rdb-footnotes");
     removeElement("article-marketing");
     removeElement("article-url");
+    removeElement("legacy-bkmk"); 
     var html = document.getElementById("rdb-article").innerHTML;
     var form = document.createElement("form");
     document.body.appendChild(form);
