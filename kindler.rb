@@ -27,7 +27,7 @@ class Kindler < Sinatra::Base
      f.flush
    end
    # Run the mailer
-   #`ruby #{MAILER}`
+   `ruby #{MAILER}`
    
    Dir.foreach(TMP_DIR) do |f|
      if f == '.' or f == '..' then next
