@@ -18,10 +18,12 @@ javascript: (function() {
     title.name = "title";
     title.value = document.getElementById("article-entry-title").innerHTML;
     title.value = prompt('Please check the title', title.value); 
-
-    form.appendChild(textarea);
-    form.appendChild(title);
-    form.submit();
+    
+    if (title.value != '' && title.value != null) {
+        form.appendChild(textarea);
+        form.appendChild(title);
+        form.submit();
+    }
     function removeElement(id) {
         try{
             var element = document.getElementById(id);
