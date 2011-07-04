@@ -3,7 +3,7 @@
 # and run the moby_mailer.rb script on it to mail it from my gmail account
 # to the Kindle free account
 #
-$LOAD_PATH.unshift File.dirname(__FILE__) + '../../public/sinatra/lib'
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '../../public/sinatra/lib')
 require 'sinatra/base'
 require 'fileutils'
 require 'iconv'
