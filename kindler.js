@@ -3,7 +3,10 @@ javascript: (function() {
     removeElement("rdb-footnotes");
     removeElement("article-marketing");
     removeElement("article-url");
-    removeElement("legacy-bkmk"); 
+    removeElement("legacy-bkmk");
+    removeElement("scroll-bullet");
+    removeElement("archive-link-wrap");
+    removeElement("print-url");
     var html = document.getElementById("rdb-article").innerHTML;
     var form = document.createElement("form");
     document.body.appendChild(form);
