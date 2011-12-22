@@ -7,6 +7,7 @@ javascript: (function() {
     removeElement("scroll-bullet");
     removeElement("archive-link-wrap");
     removeElement("print-url");
+    removeElement("rdb-share-links");
     var html = document.getElementById("rdb-article").innerHTML;
     var form = document.createElement("form");
     document.body.appendChild(form);
