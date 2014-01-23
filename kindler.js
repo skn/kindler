@@ -1,5 +1,5 @@
 javascript: (function() {
-    var html = document.getElementsByClassName("instapaper_body")[0].innerHTML;
+    var html = document.getElementsByClassName("entry-content")[0].innerHTML;
     var form = document.createElement("form");
     document.body.appendChild(form);
     form.action = "http://127.0.0.1:8081";
@@ -11,7 +11,7 @@ javascript: (function() {
 
     var title = document.createElement("input");
     title.name = "title";
-    title.value = document.getElementsByClassName("instapaper_title")[0].innerHTML;
+    title.value = document.getElementsByClassName("entry-title")[0].innerHTML;
     title.value = prompt('Please check the title', title.value); 
 
     if (title.value != '' && title.value != null) {
