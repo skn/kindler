@@ -19,8 +19,8 @@ html_file = File.join(root,"tmp","kindler.html")
 doc = open(html_file) {|f|  Hpricot(f) }
 (doc/"img").each do |img|
   url = img['src']
-  img_file = File.basename(url)
-  `curl --silent --output #{File.join(root,'tmp',img_file)} -O #{url}`
+  img_file = File.basename(url) + ".jpeg"
+  `curl --silent --connect-timeout 60 --max-time 120 --output #{File.join(root,'tmp',img_file)} -O #{url}`
   img['src'] = img_file
 end
 
